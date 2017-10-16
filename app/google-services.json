@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "962165398997",
+    "firebase_url": "https://goutuadministrador.firebaseio.com",
+    "project_id": "goutuadministrador",
+    "storage_bucket": "goutuadministrador.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962165398997:android:3f169be5be70a7aa",
+        "android_client_info": {
+          "package_name": "com.example.usuario.goutuadministra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962165398997-opj7j9bmhggivg58jvq52r8ee3v6nm82.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.usuario.goutuadministra",
+            "certificate_hash": "95ea20f76881e51bb378573113f784a98b571a6d"
+          }
+        },
+        {
+          "client_id": "962165398997-acioe053o2fr03o4sk9pm5s4s2022k7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6vTRfdtVKPxpU6SDWA0BE2wlM3PvoLuQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962165398997-acioe053o2fr03o4sk9pm5s4s2022k7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

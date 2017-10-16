@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fd2b2e</color>
+    <color name="colorPrimaryDark">#606269</color>
+    <color name="colorAccent">#bfd1c7</color>
+
+    <color name="colorList">#c9eab4</color>
+    <color name="colorLogin">#efefef</color>
+    <color name="colorFondo">#faf4f4</color>
+    <color name="colorBlanco">#ffffff</color>
+
+    <!--recycler productos-->
+    <color name="album_title">#4c4c4c</color>
+    <color name="viewBg">#f1f5f8</color>
+</resources>
