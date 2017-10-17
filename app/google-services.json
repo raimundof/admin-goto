@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "962165398997-ikvss1dvr34gjk0fq2fukn05dmpgtsa1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.usuario.goutuadministra",
+            "certificate_hash": "735331668f7f78a4ed6e29a7686c8319a0dcad6f"
+          }
+        },
+        {
           "client_id": "962165398997-opj7j9bmhggivg58jvq52r8ee3v6nm82.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

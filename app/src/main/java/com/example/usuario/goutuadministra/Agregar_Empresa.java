@@ -42,7 +42,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.usuario.goutuadministra.R.id.imageView;
 
 public class Agregar_Empresa extends AppCompatActivity {
     private Spinner lista;
@@ -50,7 +49,7 @@ public class Agregar_Empresa extends AppCompatActivity {
     private List<Categoria> arrayCategotia = null;
 
 
-//  crop
+//  cropzzz
     Button elegir, subir;
     ImageView imagen;
     ProgressDialog loading;
@@ -205,6 +204,7 @@ public class Agregar_Empresa extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 resultUri = result.getUri();
                 imagen.setImageURI(resultUri);
+
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
             }

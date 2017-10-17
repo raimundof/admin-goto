@@ -1,5 +1,7 @@
 package com.example.usuario.goutuadministra;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +15,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +48,39 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager =getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.contenedor, new Empresa()).commit();
         //
+
+
+        View header = navigationView.getHeaderView(0);
+        TextView textNombre = (TextView) header.findViewById(R.id.txtNombreUsuario);
+        TextView textCorreo = (TextView) header.findViewById(R.id.txtCorreo);
+        ImageView imageView = (ImageView) header.findViewById(R.id.imgPerfil) ;
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null)
+        {
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            Uri photoUrl = user.getPhotoUrl();
+
+            String uid = user.getUid();
+
+            textNombre.setText(name);
+            textCorreo.setText(email);
+
+        }
+        else
+        {
+            Intent intent = new Intent(getApplicationContext(),Login.class);
+            startActivity(intent);
+        }
+
+    }
+
+    public void cerrarSesion()
+    {
+        FirebaseAuth.getInstance().signOut();
+        System.exit(0);
+        finish();
     }
 
     @Override
@@ -110,7 +150,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_cerrarSesion) {
 
-
+            cerrarSesion();
         }
         else if (id == R.id.nav_share) {
 

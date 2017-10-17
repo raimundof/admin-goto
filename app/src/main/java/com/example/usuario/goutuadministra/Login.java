@@ -15,8 +15,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+
 public class Login extends AppCompatActivity {
 
+    //    Login firebase
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText txtcorreo, txtpassword;
@@ -27,8 +29,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        setContentView(R.layout.activity_login);
-//        firebase
+        //        firebase
         txtcorreo= (EditText) findViewById(R.id.txtUsuario);
         txtpassword=(EditText) findViewById(R.id.txtPassword);
         mAuth = FirebaseAuth.getInstance();
@@ -37,6 +38,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Iniciar();
+                Log.d("mesasaje", "clik en uno");
             }
         });
 
@@ -55,12 +57,13 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Error al iniciar session",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        else
-                        {
-                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        else {
+                            Log.d("correcto", "corecto");
+                            Toast.makeText(Login.this, "Acceso correcto",
+                                    Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
                         }
-                        // ...
                     }
                 });
     }
