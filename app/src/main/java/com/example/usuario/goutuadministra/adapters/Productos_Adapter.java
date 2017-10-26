@@ -1,4 +1,4 @@
-package com.example.usuario.goutuadministra;
+package com.example.usuario.goutuadministra.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.PopupMenu;
@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.usuario.goutuadministra.model.Productos_Dato;
+import com.example.usuario.goutuadministra.R;
 
 import java.util.List;
 

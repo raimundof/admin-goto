@@ -1,5 +1,6 @@
 package com.example.usuario.goutuadministra;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -22,35 +23,55 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText txtcorreo, txtpassword;
-
     Button boton;
+
+    private ProgressDialog loading;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+
         //        firebase
         txtcorreo= (EditText) findViewById(R.id.txtUsuario);
         txtpassword=(EditText) findViewById(R.id.txtPassword);
+
+        txtcorreo.setText("royallr77@gmail.com");
+        txtpassword.setText("123456789");
+
         mAuth = FirebaseAuth.getInstance();
         boton =(Button)findViewById(R.id.btnIniciar);
+
+
+
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Iniciar();
-                Log.d("mesasaje", "clik en uno");
+
             }
         });
-
     }
 
     private void Iniciar(){
+
         String correo = txtcorreo.getText().toString();
         String paswd = txtpassword.getText().toString();
+
+        loading = new ProgressDialog(this);
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+
+        progressDialog.setTitle("Cargando");
+        progressDialog.show();
+
         mAuth.signInWithEmailAndPassword(correo, paswd)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         Log.d("miTag", "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
                             Log.w("mitagg", "signInWithEmail:failed", task.getException());
@@ -58,9 +79,10 @@ public class Login extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         }
                         else {
-                            Log.d("correcto", "corecto");
+                            progressDialog.dismiss();
                             Toast.makeText(Login.this, "Acceso correcto",
                                     Toast.LENGTH_SHORT).show();
+
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
                         }

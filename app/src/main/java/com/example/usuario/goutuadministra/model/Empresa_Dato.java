@@ -1,4 +1,4 @@
-package com.example.usuario.goutuadministra;
+package com.example.usuario.goutuadministra.model;
 
 /**
  * Created by usuario on 27/08/2017.

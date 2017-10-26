@@ -48,7 +48,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
-                    android:background="@color/colorList"
                     app:layout_anchorGravity="bottom|end"
                     app:srcCompat="@android:drawable/ic_menu_crop" />
 
@@ -80,11 +79,6 @@
                     android:inputType="textMultiLine" />
 
 
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
                 <EditText
                     android:id="@+id/txtTelefono"
                     android:layout_width="match_parent"
@@ -104,10 +98,12 @@
                     android:inputType="textPersonName" />
 
                 <Button
-                    android:id="@+id/btnSubir"
+                    android:id="@+id/btnEditarEmpresa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Agregar" />
+                    android:backgroundTint="@color/colorAccent"
+                    android:text="Editar"
+                    android:textColor="@color/colorBlanco" />
 
             </LinearLayout>
 

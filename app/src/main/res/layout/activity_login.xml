@@ -1,52 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="30dp"
     android:layout_marginRight="30dp"
     android:layout_marginTop="200dp"
     android:padding="40dp"
     android:id="@+id/relativeLayout">
 
-    <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtUsuario"
-            android:layout_width="wrap_content"
+        <!--<EditText-->
+            <!--android:id="@+id/txtUsuario"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="textPersonName"-->
+            <!--android:hint="Usuario"-->
+            <!--android:drawableLeft="@drawable/user"-->
+            <!--android:layout_alignParentTop="true" />-->
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Usuario"
-            android:drawableLeft="@drawable/user"
-            android:layout_alignParentTop="true"
-            />
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent">
+
+            <EditText
+                android:id="@+id/txtUsuario"
+                android:drawableRight="@drawable/user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Correo electrónico" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorAccent">
 
         <EditText
             android:id="@+id/txtPassword"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Password"
             android:inputType="textPassword"
+            android:hint="Contraseña" />
 
-            android:drawableLeft="@drawable/lock"
-
-            android:layout_centerVertical="true" />
-
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btnIniciar"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:text="Iniciar"
             android:textStyle="bold"
             android:textColor="#fff"
             android:textSize="18sp"
-            android:layout_marginTop="150dp"
+
             android:layout_centerHorizontal="true" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
 

@@ -1,4 +1,4 @@
-package com.example.usuario.goutuadministra;
+package com.example.usuario.goutuadministra.fragment;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.usuario.goutuadministra.R;
+
 import java.util.Calendar;
 
-// TODO: Horarios
-public class Horarios extends Fragment {
+// TODO: Horarios_Fragment
+public class Horarios_Fragment extends Fragment {
 
     TextView tvHora;
     Button btnPonerHora;

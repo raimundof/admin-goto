@@ -1,4 +1,4 @@
-package com.example.usuario.goutuadministra;
+package com.example.usuario.goutuadministra.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Usuario extends Fragment {
+import com.example.usuario.goutuadministra.R;
 
-    // TODO: Usuario
+public class Usuario_Fragment extends Fragment {
+
+    // TODO: Usuario_Fragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

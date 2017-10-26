@@ -1,7 +1,5 @@
-package com.example.usuario.goutuadministra;
+package com.example.usuario.goutuadministra.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,10 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.usuario.goutuadministra.model.Productos_Dato;
+import com.example.usuario.goutuadministra.R;
+import com.example.usuario.goutuadministra.adapters.Productos_Adapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Productos extends Fragment {
+public class Productos_Fragment extends Fragment {
 
     private RecyclerView recyclerView;
     private Productos_Adapter adapter;
@@ -27,7 +29,7 @@ public class Productos extends Fragment {
 
     }
 
-    // TODO: Productos
+    // TODO: Productos_Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

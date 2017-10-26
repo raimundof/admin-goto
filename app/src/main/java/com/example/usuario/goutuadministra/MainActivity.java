@@ -3,8 +3,6 @@ package com.example.usuario.goutuadministra;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,6 +16,10 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.usuario.goutuadministra.fragment.Empresa_Fragment;
+import com.example.usuario.goutuadministra.fragment.Horarios_Fragment;
+import com.example.usuario.goutuadministra.fragment.Productos_Fragment;
+import com.example.usuario.goutuadministra.fragment.Usuario_Fragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity
 
         //Vista principal(empresa)
         FragmentManager fragmentManager =getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.contenedor, new Empresa()).commit();
+        fragmentManager.beginTransaction().replace(R.id.contenedor, new Empresa_Fragment()).commit();
         //
 
 
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity
             String name = user.getDisplayName();
             String email = user.getEmail();
             Uri photoUrl = user.getPhotoUrl();
+            String nombr = user.getUid();
 
             String uid = user.getUid();
 
@@ -127,24 +130,24 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_empresa) {
             fragmentManager.beginTransaction()
-                    .replace(R.id.contenedor, new Empresa())
+                    .replace(R.id.contenedor, new Empresa_Fragment())
                     .addToBackStack(null)
                     .commit();
         } else if (id == R.id.nav_productos) {
             fragmentManager.beginTransaction()
-                    .replace(R.id.contenedor, new Productos())
+                    .replace(R.id.contenedor, new Productos_Fragment())
                     .addToBackStack(null)
                     .commit();
 
         } else if (id == R.id.nav_horarios) {
             fragmentManager.beginTransaction()
-                    .replace(R.id.contenedor, new Horarios())
+                    .replace(R.id.contenedor, new Horarios_Fragment())
                     .addToBackStack(null)
                     .commit();
 
         } else if (id == R.id.nav_usuario) {
             fragmentManager.beginTransaction()
-                    .replace(R.id.contenedor, new Usuario ())
+                    .replace(R.id.contenedor, new Usuario_Fragment())
                     .addToBackStack(null)
                     .commit();
 
@@ -162,4 +165,7 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }

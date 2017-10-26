@@ -4,18 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -34,23 +28,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class Agregar_Empresa extends AppCompatActivity {
-    private Spinner lista;
-    private SpinnerAdapter adapter = null;
-    private List<Categoria> arrayCategotia = null;
+public class Editar_Empresa extends AppCompatActivity {
 
 
-//  cropzzz
-    Button elegir, subir;
+    Button editarEmpresa;
     ImageView imagen;
     ProgressDialog loading;
     private final static int GalleryPick = 274;
@@ -58,13 +45,16 @@ public class Agregar_Empresa extends AppCompatActivity {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReference();
 
+    DatabaseReference DBMisProductos;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agregar_empresa);
+        setContentView(R.layout.activity_editar_empresa);
 
 
-        subir = (Button) findViewById(R.id.btnSubir);
+        editarEmpresa = (Button) findViewById(R.id.btnEditarEmpresa);
 
         imagen = (ImageView) findViewById(R.id.imagen);
 
@@ -105,7 +95,7 @@ public class Agregar_Empresa extends AppCompatActivity {
             }
         });
 
-        subir.setOnClickListener(new View.OnClickListener() {
+        editarEmpresa.setOnClickListener(new View.OnClickListener() {
             @SuppressWarnings("VisibleForTests")
             @Override
             public void onClick(View view) {
@@ -126,13 +116,13 @@ public class Agregar_Empresa extends AppCompatActivity {
                             progressDialog.dismiss();
                             Uri dowloadUrl = taskSnapshot.getDownloadUrl();
                             FirebaseDatabase.getInstance().getReference().child("image").setValue(dowloadUrl.toString());
-                            Toast.makeText(Agregar_Empresa.this, "SUBIDA EXITOSA", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Editar_Empresa.this, "SUBIDA EXITOSA", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             progressDialog.dismiss();
-                            Toast.makeText(Agregar_Empresa.this, "Imagen no subida -> " + e, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Editar_Empresa.this, "Imagen no subida -> " + e, Toast.LENGTH_SHORT).show();
                         }
                     }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
 
@@ -144,7 +134,7 @@ public class Agregar_Empresa extends AppCompatActivity {
                     });
                 }
                 else {
-                    Toast.makeText(Agregar_Empresa.this, "No seleccion ningna imagen", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Editar_Empresa.this, "No seleccion ningna imagen", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -171,14 +161,7 @@ public class Agregar_Empresa extends AppCompatActivity {
 //        });
 
     }
-//    private void getListaCategorias()
-//    {
-//        for (int i = 0; i<2; i++) {
-//            arrayCategotia.add(new Categoria ("Categoria"));
-//        }
-//        adapter = new SpinnerAdapter(getApplicationContext(), arrayCategotia);
-//        lista.setAdapter(adapter);
-//    }
+
     Uri resultUri;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -209,5 +192,31 @@ public class Agregar_Empresa extends AppCompatActivity {
                 Exception error = result.getError();
             }
         }
+    }
+
+
+
+
+
+    private void getListaProducto()
+    {
+        DBMisProductos = FirebaseDatabase.getInstance().getReference("empresa/");
+        DBMisProductos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot i : dataSnapshot.getChildren())
+                {
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

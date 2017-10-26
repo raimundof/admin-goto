@@ -31,7 +31,7 @@
 
         <activity android:name=".MainActivity"></activity>
 
-        <activity android:name=".Agregar_Empresa" />
+        <activity android:name=".Editar_Empresa" />
 
     </application>
 
